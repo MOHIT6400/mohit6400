@@ -1,0 +1,87 @@
+<odoo>
+    <data>
+        <record id ="trainer_trainer_form_view" model="ir.ui.view">
+            <field name ="name">trainer.trainer.form.view</field>
+            <field name ="model">trainer.trainer</field>
+            <field name="arch" type="xml">
+                <form string="Trainer">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    <notebook>
+		        		<page string="Work information">  
+		        				<form>
+                                     <h3>Contact Information</h3> 
+                                    <group>
+                                        <field name="age" string="Age"/>
+                                    </group>    
+                                </form>
+		        		</page>
+                        <page string="Private information">  
+                            <form>                               
+                                <h3>Contact Information</h3>                               
+                                <group>
+                                    <field name="age" string="Age"/>
+                                </group>    
+                            </form>
+                    </page>
+                    <page string="HR Setting">  
+                        <form>
+                            <h3>Contact Information</h3>                           
+                            <group>
+                                <field name="age" string="Age"/>
+                            </group>    
+                        </form>
+                </page>
+            		</notebook> 
+                    </sheet>
+                </form>    
+            </field>
+        </record>
+        
+        <record id ="trainer_trainer_tree_view" model="ir.ui.view">
+            <field name ="name">trainer.trainer.tree.view</field>
+            <field name ="model">trainer.trainer</field>
+            <field name="arch" type="xml">
+                        <tree>
+                            <field name ="name"/>   
+                            <field name ="age"/>                          
+                        </tree>
+            </field>
+        </record>
+
+        <record id ="trainer_trainer_kanban_view" model="ir.ui.view">
+            <field name ="name">trainer.trainer.kanban.view</field>
+            <field name ="model">trainer.trainer</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name ="name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                                <span t-esc="record.name.value"/>
+                            </div>
+                        </t>
+                    </templates>                             
+                </kanban>
+            </field>
+        </record>
+
+        <record id ="trainer_trainer_action" model="ir.actions.act_window">
+            <field name="name">Trainer</field>
+            <field name="res_model">trainer.trainer</field>
+            <field name="view_mode">tree,kanban,form</field>
+        </record>
+
+
+        <menuitem id ="trainer_menu"
+              name="TRAINER"
+              parent="gym_management.gym_management"
+              action="trainer_trainer_action"
+
+        />
+
+        
+    </data>
+</odoo>

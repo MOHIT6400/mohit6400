@@ -1,0 +1,220 @@
+<odoo>
+    <data>
+        <record id ="members_members_form_view" model="ir.ui.view"> 
+            <field name ="name">members.members.form.view</field>
+            <field name ="model">members.members</field>
+            <field name="arch" type="xml">
+                <form string="Members">
+                    <header>
+        			    <button name="action_confirm" type="object" string="Confirm" invisible="state != 'draft'"/>
+        			    <button name="action_done" type="object" string="Done" invisible="state != 'confirm'"/>
+                	    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
+    			    </header>
+                    <sheet>
+                        <group>                                          
+                            <h1>NEW</h1>  
+                            <br></br>
+                            <br></br>                          
+                            <group>    
+                                <br></br>
+                            </group>
+                            <group>
+                            	<field name="name" readonly='1' string=""/>
+                                <field name="partner_id" placeholder="Select/Enter Your Name..."/>
+                                <br></br>
+                                <br></br>
+                                <field name="gst_treatment"/>
+                            </group>
+                            <group>
+                                
+                                <field name="occupation"/>
+                                <field name="phone"  groups="gym_management.group_gym_hide_date"/>
+                                <field name="email"/>
+                                <field name="title"/>
+                                <field name="gender" invisible="context.get('hide_gender')" widget="radio"/>
+                                <field name="dob"/>
+                                <field name="age"/>
+
+                            </group>
+                           
+                            <!-- <group>
+                                <field name="membership_scheme" placeholder="Select Your Membership Scheme..."/>
+                            </group> -->
+                            <!-- <group>
+                                <field name="membership_fees" string="Paid Amount" readonly="1"/>
+                            </group>   -->
+                            <!-- <br></br>
+                            <br></br>                          -->
+                            <!-- <h1>MEMBERSHIP DURATION</h1>                           
+                            <group>
+                                <br></br>
+                            </group>    
+                            <group>>
+                                <field name="start_date" string="Start Date" placeholder="Select Your Membership Start Date..."/>
+                            </group>
+                            <group>
+                                <field name="end_date" string="End Date" placeholder="Select Your Membership End Date..."/>
+                            </group> -->
+                            
+                        </group> 
+                        
+                    <notebook>
+		        		
+		        		<page string="Measurement History">  
+		        			<field name="measurement_line" >
+		        				<tree>
+		        					<field name="members_id"/>    
+		        					<field name="measurement_id" />
+                                    <field name="date" />
+                                    <field name="weight"/>
+                                    <field name="height"/>
+                                    <field name="bmi" compute="_compute_bmi"/>
+                                    <field name="bmr" compute="_compute_bmr"/> 
+                                    <field name="neck"/>
+                                    <field name="chest"/>
+                                    <field name="biceps"/>
+                                    <field name="waist"/>
+                                    <field name="hips"/>
+                                    <field name="thighs"/>    
+                                    <field name="calf"/>   
+		        				</tree>
+                                <form>                                                                              
+                                    <h4>Memeber Detail</h4> 
+                                    <br></br>                                    
+                                    <group>
+                                        <field name="members_id"/>    
+		        					    <field name="measurement_id" />                              
+                                        <field name="date"/>                          
+                                    </group>
+                                    <br></br>
+                                    <h4>Height-Weight</h4>
+                                    <br></br>                                   
+                                    <group>
+                                        <field name="weight"/>
+                                        <field name="height"/>
+                                        <field name="bmi" compute="_compute_bmi"/>
+                                        <field name="bmr" compute="_compute_bmr"/>
+                                    </group>
+                                    <br></br>
+                                    <h4>Body Measurement</h4> 
+                                    <br></br>                                       
+                                    <group>                         
+                                        <field name="neck"/>
+                                        <field name="chest"/>
+                                        <field name="biceps"/>
+                                        <field name="waist"/>
+                                        <field name="hips"/>
+                                        <field name="thighs"/>     
+                                        <field name="calf"/>        
+                                    </group>                                       
+                                </form>
+		        			</field>		        			 
+		        		</page>
+            		 
+                        <page string="Sales and Purchase">
+                            <form>
+                                    <group>                                    
+                                                                            
+                                        <group>  
+                                            <field name = "sales" readonly="1"/>
+                                            <field name="salesperson" string="Sales Person"/>
+                                            <field name="paymentterms" string="Payment Terms"/>                                       
+                                        </group>                             
+                                        <group> 
+                                            <field name = "purchase" readonly="1"/>                            
+                                            <field name="paymentterms" string="Payment Terms"/>                                        
+                                        </group>
+                                        <group>  
+                                            <field name = "ficsalinformation" string="Fiscal Information" readonly="1"/>                                                                   
+                                            <field name="fiscalposition" string="Fiscal Postion"/>              
+                                        </group>   
+                                        <group> 
+                                            <field name = "misc" readonly="1"/>                         
+                                            <field name="reference"/>
+                                            <field name="company"/>
+                                        </group>
+                                    </group>
+                                </form>                         
+                        </page>
+                        <page string="Invoicing"> 
+                        </page>
+                        <page string="Internal Notes"> 
+                        </page>
+                        <page string="Membership"> 
+                        </page>
+
+            		</notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+				        <field name="message_follower_ids"/>
+				        <field name="activity_ids"/>
+				        <field name="message_ids"/>
+            		</div> 
+                </form>            
+            </field>
+        </record>
+
+
+        <record id ="members_members_tree_view" model="ir.ui.view">
+            <field name ="name">members.members.tree.view</field>
+            <field name ="model">members.members</field>
+            <field name="arch" type="xml">
+                        <tree>
+                            <field name="name" readonly='1'/>
+                            <field name ="partner_id"/>
+                            <field name="occupation"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <field name="title"/>
+                            <field name="gender" invisible="context.get('hide_gender')" widget="radio"/>
+                            <field name="dob"/>
+                            <field name="age"/>
+                            <!-- <field name="gender"/> -->
+                            <!-- <field name="membership_scheme"/> -->
+                        </tree>
+            </field>
+        </record>
+
+        <record id ="members_members_kanban_view" model="ir.ui.view">
+            <field name ="name">members.members.kanban.view</field>
+            <field name ="model">members.members</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name ="partner_id"/>
+                    <!-- <field name="membership_scheme"/> -->
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                                <span t-esc="record.partner_id.value"/>
+                                    <br></br>
+                                    <br></br>
+                                <!-- <span t-esc="record.membership_scheme.value"/> -->
+                            </div>
+                        </t>
+                    </templates>                             
+                </kanban>
+            </field>
+        </record> 
+
+        <record id ="members_members_action" model="ir.actions.act_window">
+            <field name="name">Members</field>
+            <field name="res_model">members.members</field>
+            <field name="view_mode">tree,kanban,form</field>
+        </record>
+
+        <menuitem id ="gym_management"
+            name="GYM Management"
+
+        />
+        <menuitem id="members_menu"
+            name="MEMBERS"
+            parent="gym_management"
+        />    
+        <menuitem id ="registration_menu"
+            name="REGISTERED MEMBERS"
+            parent="members_menu"
+            action="members_members_action"
+        />
+
+    </data>
+</odoo>

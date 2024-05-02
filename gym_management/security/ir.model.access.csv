@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_members_members_id,access.members.members,model_members_members,base.group_user,1,1,1,1
+accesss_traner_trainer_id,access.trainer.trainer,model_trainer_trainer,base.group_user,1,1,1,1
+access_measurement_measurement_id,access.measurement.measurement,model_measurement_measurement,base.group_user,1,1,1,1
+access_measurement_measurement_id,access.measurement.measurement,model_measurement_measurement,base.group_user,1,1,1,1
+access_members_measurement_line_id,access.members.measurement.line,model_members_measurement_line,base.group_user,1,1,1,1
+access_bulk_members_confirm_id,bulk.members.confirm,model_bulk_members_confirm,,1,1,1,1
+
+

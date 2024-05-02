@@ -1,0 +1,71 @@
+<odoo>
+    <data>
+        <record id ="measurement_measurement_form_view" model="ir.ui.view">
+            <field name ="name">measurement.measurement.form.view</field>
+            <field name ="model">measurement.measurement</field>
+            <field name="arch" type="xml">
+                <form string="Measurement">
+                    <sheet>
+                        <h1>Memeber Detail</h1>
+                        <br></br>
+                        <group> 
+                            <field name="member_id" widget="selection"/>                         
+                            <field name="date"/>                          
+                        </group>
+                        <h1>Height-Weight</h1>
+                        <br></br>
+                        <group>
+                            <field name="weight"/>
+                            <field name="height"/>
+                            <field name="bmi" compute="_compute_bmi"/>
+                            <field name="bmr" compute="_compute_bmr"/>
+                        </group>
+                        <h1>Body Measurement</h1>  
+                        <br></br>
+                        <group>                         
+                            <field name="neck"/>
+                            <field name="chest"/>
+                            <field name="biceps"/>
+                            <field name="waist"/>
+                            <field name="hips"/>
+                            <field name="thighs"/>
+                        </group>
+                        <group>
+                            <field name="calf"/>
+                        </group>
+                    </sheet>
+                </form>    
+            </field>
+        </record>
+        
+        <record id ="measurement_measurement_tree_view" model="ir.ui.view">
+            <field name ="name">measurement.measurement.tree.view</field>
+            <field name ="model">measurement.measurement</field>
+            <field name="arch" type="xml">
+                <tree string="Measurement">
+                    <field name="date"/>
+                    <field name="member_id"/>
+                    <field name="weight"/>
+                    <field name="height"/>
+                    <field name="bmi"/>
+                    <field name="bmr"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id ="measurement_measurement_action" model="ir.actions.act_window">
+            <field name="name">Measurement</field>
+            <field name="res_model">measurement.measurement</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem id ="measurement_menu"
+              name="MEASUREMENT"
+              parent="gym_management.members_menu"
+              action="measurement_measurement_action"
+
+        />        
+    </data>
+</odoo>

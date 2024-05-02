@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+			<record id="contacts_view_all_members" model="ir.ui.view">
+		    <field name="name">contacts.view.all.members</field>
+		    <field name="model">res.partner</field>
+		    <field name="inherit_id" ref="base.view_partner_form"/>   
+		    <field name="arch" type="xml">
+		        <xpath expr="//field[@name='website']" position="after">
+		            <field name="facebook"/>
+		        </xpath>
+		        <xpath expr="//div[@class='oe_button_box']" position="inside">
+	         		<button class="oe_stat_button" type="object"   icon="fa-usd" name="action_view_memberes">
+                    		<field string="Members" name="total_member" widget="statinfo"/>
+                	</button>
+		        </xpath>
+		    </field>
+		</record>
+	</data>
+</odoo>
