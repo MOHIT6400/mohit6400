@@ -1,9 +1,9 @@
 
 {
-    'name': 'GYM Managment',
+    'name': 'GYM Managment6',
     'version': '17.0',
-    'category': 'Management',
-    'summary': 'GYM Managment',
+    'category': 'Management6',
+    'summary': 'GYM Managment6',
     'description': """
 		          GYM Managment.
     """,
