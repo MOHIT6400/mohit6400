@@ -8,7 +8,7 @@
 		          GYM Managment.
     """,
     'author':'Mohit',
-    'License':'LGPL-3',
+    'license':'LGPL-3',
 
     'depends': ['base','utm','sale'],    
     'data': [
