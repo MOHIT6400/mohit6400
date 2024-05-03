@@ -22,5 +22,9 @@
         'wizard/bulk_member_confirm.xml',
     ],
     'installable': True,
+    'images': [
+        'static/description/banner.gif',
+    ],
 }
+
 
