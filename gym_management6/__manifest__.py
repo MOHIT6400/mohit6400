@@ -6,8 +6,6 @@
     'summary': 'GYM Managment6',
     'description': '`This is a reStructuredText description.`\n\n    This is a paragraph of text that is indented by four spaces to indicate that it is formatted using RST syntax.',
     'author':'Mohit',
-    'price':'1.0'
-    'currency':'USD',
     'license':'LGPL-3',
 
     'depends': ['base','utm','sale'],    
