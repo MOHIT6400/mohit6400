@@ -4,9 +4,7 @@
     'version': '17.0',
     'category': 'Management6',
     'summary': 'GYM Managment6',
-    'description': """
-		          GYM Managment.
-    """,
+    'description': 'GYM Managment6',
     'author':'Mohit',
     'license':'LGPL-3',
 
