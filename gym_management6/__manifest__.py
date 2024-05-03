@@ -4,7 +4,7 @@
     'version': '17.0',
     'category': 'Management6',
     'summary': 'GYM Managment6',
-    'description': 'GYM Managment6',
+    'description': '`This is a reStructuredText description.`\n\n    This is a paragraph of text that is indented by four spaces to indicate that it is formatted using RST syntax.',
     'author':'Mohit',
     'license':'LGPL-3',
 
